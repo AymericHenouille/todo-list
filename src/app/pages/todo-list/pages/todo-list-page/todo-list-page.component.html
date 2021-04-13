@@ -1,0 +1,8 @@
+<button class="fab-button" mat-fab color="accent" (click)="createTask()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<div class="tasks-box">
+  <app-task *ngFor="let task of tasks" [task]="task"
+    (update)="update($event)" (remove)="remove(task.id)"></app-task>
+</div>

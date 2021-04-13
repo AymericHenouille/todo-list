@@ -6,6 +6,7 @@ import { FootBarComponent } from './components/foot-bar/foot-bar.component';
 import { FireModule } from './fire/fire.module';
 import { AuthService } from './services/auth.service';
 import { IsLoggedGuard } from './guards/is-logged.guard';
+import { TasksService } from './services/tasks.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,6 @@ import { IsLoggedGuard } from './guards/is-logged.guard';
     NavBarComponent,
     FootBarComponent
   ],
-  providers: [ AuthService, IsLoggedGuard ]
+  providers: [ AuthService, TasksService, IsLoggedGuard ]
 })
 export class CoreModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class SigninComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
   public ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -23,7 +24,8 @@ export class SigninComponent implements OnInit {
   public submit(): void {
     const email: string = this.form.get('email').value;
     const password: string = this.form.get('password').value;
-    this.authService.signin(email, password);
+    this.authService.signin(email, password).then(() =>
+      this.router.navigate(['/todolist']));
   }
 
 }

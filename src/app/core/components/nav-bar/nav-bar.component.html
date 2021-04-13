@@ -1,5 +1,19 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>TODO LIST</span>
+    <span *ngIf="(logged$ | async); then user else title"></span>
+    <span class="spacer"></span>
+    <button  *ngIf="(logged$ | async)" class="menu-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu buton">
+      <mat-icon>more_vert</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<ng-template #title><span>TODO LIST</span></ng-template>
+<ng-template #user><span>Hi {{ (user$ | async)?.name }} !</span></ng-template>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

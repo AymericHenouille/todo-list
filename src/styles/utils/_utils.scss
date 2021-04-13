@@ -1,0 +1,10 @@
+@import "./color";
+
+
+.text-center {
+  text-align: center;
+}
+
+@mixin box-shadow {
+  box-shadow: 10px 5px 5px $shadow;
+}
