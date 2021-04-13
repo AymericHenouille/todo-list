@@ -16,8 +16,7 @@ export class AuthService {
   constructor(private snackBar: MatSnackBar, private auth: AngularFireAuth, private firestore: AngularFirestore) {
     this.user$ = this.auth.authState.pipe(map(fireUser => fireUser.uid), switchMap(uid =>
       this.firestore.collection<User>(this.USERS_COLLECTION).doc(uid).snapshotChanges().pipe(
-        map(user => ({id: uid, ...user.payload.data()}), tap(user =>
-          this.snackBar.open(`Your are now connected with the ${(user as User).name} account.`, 'ok', { duration: 2000 })))
+        map(user => ({id: uid, ...user.payload.data()}))
       )));
   }
 

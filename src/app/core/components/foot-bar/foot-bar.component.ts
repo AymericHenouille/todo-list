@@ -19,7 +19,5 @@ import { Component } from '@angular/core';
   `]
 })
 export class FootBarComponent {
-
   today: Date = new Date();
-
 }
