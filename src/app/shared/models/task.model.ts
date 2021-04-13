@@ -1,8 +1,3 @@
-export enum TaskStatus {
-  TODO,
-  DONE
-}
-
 export interface Task {
   id?: string;
   edit?: boolean;
@@ -10,6 +5,5 @@ export interface Task {
   userId: string;
   name: string;
   description: string;
-  status: TaskStatus;
   date: number;
 }
