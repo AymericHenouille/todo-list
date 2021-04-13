@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Task, TaskStatus } from 'src/app/shared/models/task.model';
+import { Task } from 'src/app/shared/models/task.model';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -24,7 +24,6 @@ export class CreateTaskDialogComponent {
       userId: user?.id,
       name: this.name,
       description: this.description,
-      status: TaskStatus.TODO,
       date: Date.now()
     };
   }
