@@ -1,0 +1,17 @@
+@import "../../../../styles/utils/color";
+
+.form-container {
+
+  display: flex;
+  justify-content: center;
+
+  .form-box {
+    background-color: $white;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 10px 5px 5px $shadow;
+    max-width: 1024px;
+  }
+
+}
+

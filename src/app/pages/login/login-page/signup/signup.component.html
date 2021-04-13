@@ -1,0 +1,23 @@
+<h1 class="text-center">Signup !</h1>
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field class="full-width">
+    <mat-label>Your name</mat-label>
+    <input matInput type="text" formControlName="name">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Your email address</mat-label>
+    <input matInput type="email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Confirm your password</mat-label>
+    <input matInput type="password" formControlName="comfirmPassword">
+  </mat-form-field>
+  <div class="buttons">
+    <button mat-button [routerLink]="['/login', 'signin']">I have already an account</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Signup</button>
+  </div>
+</form>

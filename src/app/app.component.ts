@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <app-nav-bar></app-nav-bar>
+    <router-outlet></router-outlet>
+    <app-foot-bar></app-foot-bar>
+  `
 })
 export class AppComponent {
-  title = 'todo-list';
 }
