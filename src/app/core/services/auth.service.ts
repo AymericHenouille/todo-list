@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
@@ -13,7 +12,7 @@ export class AuthService {
 
   public user$: Observable<User>;
 
-  constructor(private snackBar: MatSnackBar, private auth: AngularFireAuth, private firestore: AngularFirestore) {
+  constructor(private auth: AngularFireAuth, private firestore: AngularFirestore) {
     this.user$ = this.auth.authState.pipe(map(fireUser => fireUser.uid), switchMap(uid =>
       this.firestore.collection<User>(this.USERS_COLLECTION).doc(uid).snapshotChanges().pipe(
         map(user => ({id: uid, ...user.payload.data()}))
